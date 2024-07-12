@@ -208,3 +208,44 @@ $ git log --oneline
 4. 끝말잇기 추가
 5. git add . > git commit -m '2.채소’
 6. $ git push origin master
+
+### GIT IGNORE
+
+:  얘는 추적하지마. git아 무시해. 하는거임
+
+git에서 특정파일이나 디렉을 추적하지 않도록 설정하는 데에 사용되는 텍스트파일
+
+프로젝트에 따라 공유하지 않아도 되는 파일이 존재하기 때문.
+
+1. .gitignore 파일 생성(파일명앞에 . 입력, 확장자 없음)
+2. 여기에 a.txt 작성
+3. git init
+4. git status
+
+   
+
+- 이미 깃의 관리를 받은 이력이 있는 파일이나 디렉은 ?????????
+
+### 깃허브 활용
+
+1. 개인 포폴
+2. pjt 협업
+3. til 을 통해 내가 학습하는 것 기록
+4. 코드 공유, 깃헙 주소 공유를 통해 평가 받을 수 있음
+5. 오픈소스 프젝에 기여
+
+**til (today i learned ) : 매일 내가 배운 것을 맠다운으로 정리해서 문서화. 필기+스스로 어떤 학습을 했는지 기록.
+
+https://d2.naver.com/news/3435170https://d2.naver.com/news/3435170
+
+https://docs.python.org/release/3.9.2/tutorial/index.html(파이썬튜토리얼)
+
+https://git-scm.com/book/ko/v2(깃튜토)
+
+실습1 - til 만들기
+
+1. tilㅓ이라는 이름의 깃헙 레포 생성
+2. 로컬 저장소 설정
+3. [README.md] 생성 및 지금까지의 수업내용을 정리하고 commit 생성
+4. til  원격 저장소를 추가
+5. commit 목록을 push
