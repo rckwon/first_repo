@@ -62,7 +62,7 @@
 3. **repository(저장소)** : 버전(commit : 버전을 찍는다) 이력과 파일들이 **영구저장**되는 영역, 모든 버전, 변경 이력 기록.
 commit : 변경된 파일 저장하는 행위, 사진 찍듯 기록한다해서 snapshot이라함.
 
-- git init : 로컬 저장소 설정(초기화), git의 버전관리 시작할 디렉에서 진행
+- **git init** : 로컬 저장소 설정(초기화), git의 버전관리 시작할 디렉에서 진행
 - git add : 변경사항이 있는 파일을 staging area 에 추가. 예) git add a.txt 나 폴더명도 가능 git add a.txt, /layer1
 - git add *.txt (메모장 파일 전부 스테이징에어리어에 올리는거)
 - git add . : 모든 파일 다 올리는거
@@ -83,5 +83,37 @@ commit : 변경된 파일 저장하는 행위, 사진 찍듯 기록한다해서 
 
 - git m --cached sample.txt
 - git commit -m 'first commit'
-
+- git add 파일명 꼭 하고 해야함
 - git log로 레포지토리 뭐 볼 수 있음.
+- git log --oneline   : 짧게 볼 수 있음.
+- head : 깃발처럼 그림
+- git status : 현재 로컬저장소의 파일상태 보기
+- git log : commit history  보기
+- git log --oneline : commit 목록 한줄보기
+- git config --global -1 : 지금 설정되어있는 정보 볼 수 있음.
+**1. git init 주의사항**
+- git 로컬 저장소 내에 또다른 깃 로컬 저장소를 만들지 말 것.
+- 즉, 이미 깃 로컬 저장소인 디렉 내부 하단에서 git init 명령어를 다시 입력하지 말 것. 
+- git 저장소 안에 git저장소가 있을 경우 가장 바깥쪽의 git저장소가 안쪽의 깃 저장소의 변경사항을 추적할 수 없기 때문.
+- 이렇게 되면 지우면 됨. .git 폴더를 삭제! => rm -r .git/  => ls -a
+
+- 마스터 브랜치가 없을 때 git init 하면 안됨. (?)
+
+- 상위폴더 올라가서 git init 하면 안된다는고.
+
+- til 폴더 구조 만드는 데에는 정답 없음.
+- 여러 개발자들의 깃헙 방문해서 참고해보기
+
+## 바로 직전 생성한 commit 수정하기
+1. commit 메세지 수정
+2. commit 전체 수정
+
+- ?
+- commit hash 값 확인
+- git commit --amend 하고, 메세지 수정하고 나갈 때는 **esc + : wq + enter**
+
+- 실수로 파일 하나 b_function.txt를 빼고 commit 해버린 상황.
+- b_function.txt 파일 생성
+- b_function.txt 파일 s.a에 추가.
+
+>> ls -a , touch b_function.txt, git add ., git add README.md, git status, git log --onelind, git commit --amend, i치고 수정하고 나오고 
