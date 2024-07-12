@@ -117,3 +117,94 @@ commit : 변경된 파일 저장하는 행위, 사진 찍듯 기록한다해서 
 - b_function.txt 파일 s.a에 추가.
 
 >> ls -a , touch b_function.txt, git add ., git add README.md, git status, git log --onelind, git commit --amend, i치고 수정하고 나오고 
+
+# 2024.07.12.
+
+## 원격 저장소
+
+: 코드와 버전관리이력을 온라인 상의 특정 위치에 저장하여 여러 개발자가 협업하고 코드를 공유할 수 있는 저장공간
+
+- 깃허브 레포지토리——— remote 관계 ——- 로컬 레포지토리
+- git **remote** **add** *origin* remote_repo_url  :  로컬 저장소에 원격 저장소 추가(연결)
+- origin 부분 다른거 써도 되는데 저렇게 쓰는 게 개발자들 간 관행 : 커멘션
+- origin : 별칭을 사용해 로컬에 여러개 만들 수 있음?
+- git  **remote** **add** *origin* [first_repo.git](https://github.com/rckwon/first_repo.git)
+- git remote -v : origin 이라는 이름을 가진 원격저장소의 위치를 알려줌
+
+- push : 여기 url로 넣을거야~
+- fetch (잡아채는 거) & merge : 가지고올 때 그 url로 가지고 올 거야~
+
+- 깃헙 레포지로 가는건 push 로컬로 가는 건 pull&clone
+- **git push origin master** : 원격저장소에 commit 목록을 업로드
+
+== git아 push 해줘 origin이라는 이름의 원격저장소에 master라는 이름의 브랜치를.
+
+- 이거 치면 sign in 하라는 브라우저 뜸
+- 최초 푸쉬시에는 깃허브에서 인증.
+
+- 커밋해서 깃허브저장소에 푸쉬하는거
+
+: 내용 수정, 저장, $ git add .  > $ git commit -m 'version1’   >  $ git push origin master
+
+- 원격저장소에는 커밋이 올라가는 것. 커밋 이력이 없다면 푸쉬할 수 없다.
+- 수정, 저장, add, commit, push 가 세트
+
+## pull & clone
+
+- git pull origin master : 원격 저장소의 변경사항만을 받아옴 (업데이트 개념)
+- git clone remote_repo_url : 원격저장소 전체를 복제해서 다운로드
+- clone으로 받은 프로젝트는 이미 git init 되어있음!
+- ???는 .git 폴더가 있으면 안된다????
+- 뉴비 아무것도 없는데 받을 때는 clone?, 이미 있는 곳에 가지고 오는 거는 pull?
+
+### 뉴비가 받을 때는
+
+$ git clone http://github.com/rckwon/first_repo.git
+
+$ cd first_repo
+
+$ ls -a
+
+$ git log --oneline
+
+### pull 받을 때는
+
+*cd desttop에서 파일명 같은거 수정*
+
+*mv -f first_repo git_advanced : 폴더명 바꾸는거.*
+
+**3년차가 수정. add push 이런거 하고.**
+
+**뉴비가 git pull origin master**
+
+## 실습1. 원격 저장소에 push하기
+
+1. 새로운 폴더생성 후 로컬 저장소 설정 : git init
+2. commit 목록 생성 : git commit -m ‘~~’
+3. 새로운 github 레포 생성 : 깃허브에서 만들기
+4. 원격 저장소 추가 : git remote add origin url
+5. commit 목록 push : git push origin master
+
+## 실습2. 로컬 저장소 하나에 여러 원격 저장소 추가
+
+1. 기존에 오리진 추가한 로컬저장소에 이어서 진행
+2. 새로운 git hub레포 생성 : 깃허브에서 third_repo 만들기
+3. origin 이 아닌 다른 이름으로 원격 저장소 추가  : $ git remote add eunchae https://github.com/rckwon/third_repo.git
+4. commit 목록 push : git add, commit하고 $ git push eunchae master
+
+### 실습3. 3년차가 시작
+
+1. 깃허브 만들고 $ git clone https://github.com/garam0107/word-repo.git
+2. 해당 깃 세팅에서 컬래버레이터? 거기서 가람님 추가
+3. cd Desktop > mkdir wordrelay > cd workrelay > git init > touch word.txt > 만들고 > git add . >  git commit -m ‘1.권은채’
+4. $ git remote add origin https://github.com/rckwon/wordrelay.git
+5. $ git push origin master
+
+## 뉴비는
+
+1. $ git clone https://github.com/garam0107/word-repo.git
+2. cd wordrelay
+3. $ git add word.txt
+4. 끝말잇기 추가
+5. git add . > git commit -m '2.채소’
+6. $ git push origin master
